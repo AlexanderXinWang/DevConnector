@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
@@ -14,13 +14,15 @@ import setAuthToken from "./utils/setAuthToken";
 
 import './App.css';
 
-if (localStorage.token) {
-    setAuthToken(localStorage.token);
-}
-
 const App = () => {
     useEffect(() => {
-
+        // check for token in LS when app first runs
+        if (localStorage.token) {
+            // if there is a token set axios headers for all requests
+            setAuthToken(localStorage.token);
+        }
+        // try to fetch a user, if no token or invalid token we
+        // will get a 401 response from our API
        store.dispatch(loadUser());
     }, []);
 

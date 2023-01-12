@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Link, Navigate } from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import { setAlert } from "../../actions/alert";
 import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
@@ -26,9 +26,9 @@ const Register = ({ setAlert, register, isAuthenticate }) => {
 		}
 	};
 
-	// if (isAuthenticate) {
-	// 	return <Navigate to="/dashboard" />;
-	// }
+	if (isAuthenticate) {
+		return <Redirect to="/dashboard" />;
+	}
 
 	return (
 		<section className="container">

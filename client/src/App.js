@@ -12,6 +12,7 @@ import AddExperience from "./components/profile-form/AddExperience";
 import AddEducation from "./components/profile-form/AddEducation";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
+import Post from "./components/post/Post";
 import Posts from "./components/posts/Posts";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
@@ -54,6 +55,7 @@ const App = () => {
               <PrivateRoute path="/add-experience" component={AddExperience} />
               <PrivateRoute path="/add-education" component={AddEducation} />
               <PrivateRoute path="/posts" component={Posts} />
+              <PrivateRoute path="/post/:id" component={Post} />
             </Switch>
           </section>
         </Fragment>
